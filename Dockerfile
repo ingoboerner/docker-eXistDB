@@ -5,10 +5,10 @@ MAINTAINER David Gaya
 RUN apt-get update; apt-get -y install ant ant-optional; apt-get clean
 
 # install exist and cleanup
-RUN wget -q -O '/opt/exist.jar' 'https://bintray.com/artifact/download/existdb/releases/eXist-db-setup-2.2.jar' && \
+RUN wget -q -O '/opt/exist.jar' 'https://bintray.com/artifact/download/existdb/releases/eXist-db-setup-3.2.0.jar' && \
     echo 'INSTALL_PATH=/opt/exist' > '/opt/options.txt' && \
     java -jar '/opt/exist.jar' -options '/opt/options.txt' && \
-    rm -f '/opt/exist.jar' '/opt/options' 
+    rm -f '/opt/exist.jar' '/opt/options'
 
 ENV MAX_MEMORY 512
 RUN sed -i "s/Xmx%{MAX_MEMORY}m/Xmx\${MAX_MEMORY}m/g" /opt/exist/bin/functions.d/eXist-settings.sh
