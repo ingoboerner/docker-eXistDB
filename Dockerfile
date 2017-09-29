@@ -5,7 +5,7 @@ MAINTAINER David Gaya
 RUN apt-get update; apt-get -y install ant ant-optional; apt-get clean
 
 # install exist and cleanup
-RUN wget -q -O '/opt/exist.jar' 'https://bintray.com/artifact/download/existdb/releases/eXist-db-setup-3.2.0.jar' && \
+RUN wget -q -O '/opt/exist.jar' 'https://bintray.com/artifact/download/existdb/releases/eXist-db-setup-3.5.0.jar' && \
     echo 'INSTALL_PATH=/opt/exist' > '/opt/options.txt' && \
     java -jar '/opt/exist.jar' -options '/opt/options.txt' && \
     rm -f '/opt/exist.jar' '/opt/options'
